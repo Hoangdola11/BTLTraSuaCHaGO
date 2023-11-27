@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./test.css">
+    <link rel="stylesheet" href="./all.css">
+    <script src="./assets/js/angular.min.js"> </script>
+    <script src="./assets/js/global.js"></script>
+    <script src="/assets/js/home.js"></script>
+    <title>Quản lý đơn hàng</title>
+</head>
+<body onload="time()" class="app sidebar-mini rtl" ng-app="AppBanHang" ng-controller="HomeCtrl">
+    <div class="container">
+        <div class="header">
+            <img style="width: 50px; height: 50px; margin-left: 20px; border-radius: 40px;" src="https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/399339747_682795110491049_817536770625427553_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=3iNelTlseI0AX-9-nm9&_nc_ht=scontent.fhan3-3.fna&oh=00_AfAkYNgfxYLcAx06Yf5F2O6Onbxw6OZAJCvxYaLJnFIBcw&oe=655D6CE3" alt="">
+            <div class="name">Phan văn Hoàng
+                <span class="logout">
+                    <div>Chào mừng bạn đã quay trở lại</div>
+                </span>
+            </div>
+            <div class="title">
+                <i class="fa-solid fa-right-to-bracket icon-out-right"></i>
+            </div>
+        </div>
+        <div class="content">
+            <div class="menu-left">
+                <ul class="home">
+                    <li>
+                        <a class="app-menu_item" href="./TrangChu.html">
+                          <i class=''></i>
+                          <span class="app-menu_label">Tổng Quan Chi Tiết</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="app-menu__item active" href="./qldanhmuc.html">
+                          <i class=''></i>
+                          <span class="app-menu_label active">Quản Lý Danh Mục</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="app-menu_item" href="">
+                          <i class=''></i>
+                          <span class="app-menu_label">Quản Lý Khách Hàng</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="app-menu_item" href="./qlsanpham.html">
+                          <i class=''></i>
+                          <span class="app-menu_label">Quản Lý Sản Phẩm</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="app-menu_item" href="./qldonhang.html">
+                          <i class=''></i>
+                          <span class="app-menu_label">Quản lý Đơn Hàng</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="app-menu_item" href="">
+                          <i class=''></i>
+                          <span class="app-menu_label">Quản lý Tin Tức</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="app-menu_item" href="">
+                          <i class=''></i>
+                          <span class="app-menu_label">Quản Lý Nhà Cung Cấp</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="app-menu_item" href="">
+                          <i class=''></i>
+                          <span class="app-menu_label">Báo Cáo Doanh Thu</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="app-menu_item" href="#">
+                          <i class=''></i>
+                          <span class="app-menu_label">Cài Đặt Hệ Thống</span>
+                        </a>
+                      </li>
+                </ul>
+            </div>
+<style>
+    /* CSS cho bảng */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    /* CSS cho ảnh */
+    img {
+      width: 70px;
+    }
+    
+    /* CSS cho các biểu tượng */
+    .edit-icon, .delete-icon {
+      cursor: pointer;
+    }
+    
+    /* CSS cho phân trang */
+    .pagination {
+      margin-top: 20px;
+    }
+    
+    .pagination a {
+      margin: 0 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+    <div class="menu-right">
+        <div class="app-title">
+            <ul class="app-header-title">
+                <li class="header-title-item header-common "><b>Danh đơn hàng</b></li>
+             </ul>
+             <div id="clock" class="header-common"></div>
+        </div>
+        <div class="row-element-button">
+          <div class="row-button">
+            <div class="button-elemet">
+              <a href="" type="button" class="button-create" title="Tạo mới"><i class="fa-solid fa-plus"></i> Tạo mới sản phẩm</a>
+            </div>
+          </div>
+          <div class="row-search-element">
+            <label for="">Tìm kiếm:</label>
+            <input type="search" class="from-control-search">
+          </div>
+        </div>
+        <div class="product-right-element">
+            <form action="">
+              <table>
+                <thead>
+            <tr>
+              <th>Mã đơn hàng</th>
+              <th>Tên khách hàng</th>
+              <th>Sản phẩm</th>
+              <th>Số lượng</th>
+              <th>Tổng tiền</th>
+              <th>Trạng thái</th>
+              <th>Thao tác</th>
+              <th>Chọn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DH001</td>
+              <td>Nguyễn Văn A</td>
+              <td>ZUÝP LỤA ĐUÔI CÁ</td>
+              <td>2</td>
+              <td>15,200,000đ</td>
+              <td>Đã giao</td>
+              <td>
+                <span class="edit-icon" onclick="editOrder('DH001')" title="Sửa">✎</span>
+                <span class="delete-icon" onclick="deleteOrder('DH001')" title=" Xóa"><i class="fa-solid fa-trash"></i></span>
+              </td>
+              <td><input type="checkbox" name="orderCheckbox" value="DH001"></td>
+            </tr>
+            <tr>
+              <td>DH002</td>
+              <td>Trần Thị B</td>
+              <td>GLADYS DRESS - ĐẦM XÒE TWEED</td>
+              <td>1</td>
+              <td>1,600,000đ</td>
+              <td>Đang vận chuyển</td>
+              <td>
+                <span class="edit-icon" onclick="editOrder('DH002')" title="Sửa">✎</span>
+                <span class="delete-icon" onclick="deleteOrder('DH002')" title=" Xóa"><i class="fa-solid fa-trash"></i></span>
+              </td>
+              <td><input type="checkbox" name="orderCheckbox" value="DH002"></td>
+            </tr>
+            <tr>
+              <td>DH003</td>
+              <td>Phạm Văn C</td>
+              <td>SET BỘ TWEED CAILY</td>
+              <td>3</td>
+              <td>10,200,000đ</td>
+              <td>Chờ xử lý</td>
+              <td>
+                <span class="edit-icon" onclick="editOrder('DH003')" title="Sửa">✎</span>
+                <span class="delete-icon" onclick="deleteOrder('DH003')" title=" Xóa"><i class="fa-solid fa-trash"></i></span>
+              </td>
+              <td><input type="checkbox" name="orderCheckbox" value="DH003"></td>
+            </tr>
+            <tr>
+              <td>DH004</td>
+              <td>Lê Thị D</td>
+              <td>DORIS DRESS - ĐẦM LỤA CỔ K</td>
+              <td>2</td>
+              <td>40,000đ</td>
+              <td>Đã giao</td>
+              <td>
+                <span class="edit-icon" onclick="editOrder('DH004')">✎</span>
+                <span class="delete-icon" onclick="deleteOrder('DH004')"><i class="fa-solid fa-trash"></i></span>
+              </td>
+              <td><input type="checkbox" name="orderCheckbox" value="DH004"></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+    <div class="pagination">
+      <a href="#">Trang trước</a>
+      <a href="#" class="active">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">Trang sau</a>
+    </div>
+  </div>
+
+  <script>
+    // Hàm sửa đơn hàng
+    function editOrder(orderId) {
+      // Thực hiện các thao tác chỉnh sửa đơn hàng
+      // ...
+    }
+
+    // Hàm xóa đơn hàng
+    function deleteOrder(orderId) {
+      // Thực hiện các thao tác xóa đơn hàng
+      // ...
+    }
+  </script>
+</body>
+</html>
